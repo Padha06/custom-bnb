@@ -7,6 +7,7 @@ import { DetailModal } from './components/DetailModal';
 import { FilterModal } from './components/FilterModal';
 import { WishlistDrawer } from './components/WishlistDrawer';
 import { HeroBanner } from './components/HeroBanner';
+import { MobileBottomNav } from './components/MobileBottomNav';
 import { Footer } from './components/Footer';
 import { MOCK_LISTINGS } from './data/listings';
 import { FilterState, Listing } from './types';
@@ -247,8 +248,8 @@ export function App() {
 
       </main>
 
-      {/* Floating View Map / List Button for mobile / quick action */}
-      <div className="fixed bottom-6 inset-x-0 flex justify-center z-30 pointer-events-none">
+      {/* Floating View Map / List Button for desktop / tablet */}
+      <div className="hidden sm:flex fixed bottom-6 inset-x-0 justify-center z-30 pointer-events-none">
         <button
           onClick={() => setViewMode((prev) => (prev === 'grid' ? 'split' : 'grid'))}
           className="pointer-events-auto bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full text-xs font-bold shadow-2xl flex items-center gap-2 hover:scale-105 active:scale-95 transition"
@@ -267,8 +268,23 @@ export function App() {
         </button>
       </div>
 
-      {/* Footer */}
-      <Footer />
+      {/* Modern Mobile Bottom Navigation Bar (Airbnb App Experience) */}
+      <MobileBottomNav
+        viewMode={viewMode}
+        setViewMode={setViewMode}
+        wishlistCount={wishlistIds.length}
+        openWishlist={() => setIsWishlistOpen(true)}
+        openFilterModal={() => setIsFilterModalOpen(true)}
+        onExploreClick={() => {
+          setFilters(prev => ({ ...prev, category: 'all', searchDestination: '' }));
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
+
+      {/* Footer (with extra pb for mobile bottom nav) */}
+      <div className="pb-16 sm:pb-0">
+        <Footer />
+      </div>
 
       {/* Detail Modal */}
       {selectedListing && (

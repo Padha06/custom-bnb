@@ -60,10 +60,10 @@ export const Header: React.FC<HeaderProps> = ({
                 <img
                   src="/logo.png"
                   alt="AuraStays Emblem"
-                  className="w-9 h-9 object-contain"
+                  className="w-8 h-8 sm:w-9 sm:h-9 object-contain"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="hidden sm:flex flex-col">
                 <span className="text-xl font-bold tracking-tight text-slate-900 group-hover:text-rose-600 transition-colors leading-none">
                   aura<span className="text-rose-500">stays</span>
                 </span>
@@ -73,29 +73,30 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Permanent Compact Search Pill inside Navbar */}
             <div
               onClick={() => setIsSearchModalOpen(true)}
-              className="flex items-center divide-x divide-slate-200 border border-slate-200 rounded-full py-1.5 px-3 shadow-xs hover:shadow-md hover:border-slate-300 transition-all cursor-pointer bg-white"
+              className="flex items-center divide-x divide-slate-200 border border-slate-200 rounded-full py-1.5 px-2.5 sm:px-3 shadow-xs hover:shadow-md hover:border-slate-300 transition-all cursor-pointer bg-white max-w-[200px] sm:max-w-none flex-1 mx-2 sm:flex-initial"
             >
-              <button className="px-3 text-xs font-semibold text-slate-800 hover:text-rose-600 transition truncate max-w-[120px] sm:max-w-none">
+              <button className="px-2 sm:px-3 text-xs font-semibold text-slate-800 hover:text-rose-600 transition truncate text-left">
                 {filters.searchDestination || 'Anywhere'}
               </button>
               <button className="px-3 text-xs font-semibold text-slate-800 hover:text-rose-600 transition hidden sm:inline">
                 Any week
               </button>
-              <div className="pl-3 pr-0.5 flex items-center gap-2.5">
+              <div className="pl-2 sm:pl-3 pr-0.5 flex items-center gap-2 ml-auto sm:ml-0">
                 <span className="text-xs text-slate-500 font-normal hidden md:inline">
                   {totalGuests > 0 ? `${totalGuests} guest${totalGuests > 1 ? 's' : ''}` : 'Add guests'}
                 </span>
-                <div className="w-7 h-7 rounded-full bg-rose-500 flex items-center justify-center text-white shadow-xs hover:bg-rose-600 transition">
-                  <Search className="w-3.5 h-3.5 stroke-[2.5]" />
+                <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-rose-500 flex items-center justify-center text-white shadow-xs hover:bg-rose-600 transition flex-shrink-0">
+                  <Search className="w-3 h-3 sm:w-3.5 sm:h-3.5 stroke-[2.5]" />
                 </div>
               </div>
             </div>
 
             {/* Right Navigation Actions */}
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
               <button
                 onClick={openFilterModal}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition shadow-xs"
+                className="flex items-center gap-1.5 p-2 sm:px-3 sm:py-1.5 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition shadow-xs"
+                title="Filters"
               >
                 <SlidersHorizontal className="w-3.5 h-3.5 text-slate-600" />
                 <span className="hidden sm:inline">Filters</span>
@@ -118,7 +119,7 @@ export const Header: React.FC<HeaderProps> = ({
                 )}
               </button>
 
-              <div className="flex items-center gap-2 p-1 pl-2.5 border border-slate-200 rounded-full hover:shadow-sm transition cursor-pointer">
+              <div className="hidden sm:flex items-center gap-2 p-1 pl-2.5 border border-slate-200 rounded-full hover:shadow-sm transition cursor-pointer">
                 <Globe className="w-3.5 h-3.5 text-slate-500" />
                 <div className="w-6 h-6 rounded-full bg-slate-900 text-white flex items-center justify-center text-xs font-bold">
                   <User className="w-3 h-3" />
