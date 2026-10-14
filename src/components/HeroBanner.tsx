@@ -13,14 +13,14 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({ onExploreClick }) => {
   return (
     <div className="relative mb-6 md:mb-8 rounded-2xl md:rounded-3xl overflow-hidden border border-rose-100/80 bg-gradient-to-br from-rose-50/70 via-white to-amber-50/50 shadow-sm animate-in fade-in duration-300">
       
-      {/* Mobile-Only Background: Gorgeous luxury boutique bedroom with warm soft overlay */}
+      {/* Mobile-Only Background: Crisp luxury boutique hotel suite with warm ambient backlight */}
       <div className="absolute inset-0 z-0 block lg:hidden">
         <img
-          src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=1000&q=80"
+          src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=90"
           alt="Luxury Bedroom Sanctuary"
-          className="w-full h-full object-cover object-center opacity-15"
+          className="w-full h-full object-cover object-center opacity-40 scale-102"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-rose-50/90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/70 to-white/40" />
       </div>
 
       {/* Desktop Subtle Warm Gradient Blur Orbs */}
